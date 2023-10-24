@@ -5,6 +5,8 @@ export const metadata = {
 import NewsApi from "@/app/Library/NewsApi";
 import { Inter } from 'next/font/google';
 import ArticleCard from "@/app/Components/ArticleCard";
+import Login from  "@/app/Components/Login";
+import Link from "next/link";
 
 
 
@@ -12,9 +14,6 @@ const inter = Inter ({ subsets: ['latin'] });
 
 export default async function Home() {
 const headlines = await NewsApi.getHeadLines();
-
-
-
 
 
   return (
@@ -27,6 +26,18 @@ const headlines = await NewsApi.getHeadLines();
         ))}
       </div>
       </div>
+
+      <div>
+        {/* Add links to the registration and login pages */}
+        <Link legacyBehavior href="/register">
+          <a className="text-blue-500">Register</a>
+        </Link>
+        <span> | </span>
+        <Link legacyBehavior href="/Login">
+          <a className="text-blue-500">Login</a>
+        </Link>
+      </div>
+      
     </main>
   );
 }
